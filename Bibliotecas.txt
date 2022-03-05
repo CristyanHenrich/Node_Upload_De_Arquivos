@@ -3,3 +3,4 @@ npm install express /Cria rotas
 npm install ejs --save /Renderizar HTML5
 npm install multer --save /Permite upload de arquivos em rotas express
 npm install -g nodemon /Atualizacao automatica do servidor
+npm install cors /Permitir acesso externo a API

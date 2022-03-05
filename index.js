@@ -1,7 +1,16 @@
- const express = require("express");
+const express = require("express");
 const app = express();
 const multer = require("multer");
 const path = require("path")
+const cors = require('cors');
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Acces-Control-Allow-Methods", 'GET');
+    res.header("Acces-Control-Allow-Methods", 'POST');
+    app.use(cors());
+    next();
+});
 
 app.set('view engine', 'ejs');
 
@@ -29,8 +38,10 @@ app.get("/",(req, res) => {
 
 app.post("/upload",upload.single("file"),(req, res) =>{
     res.render("recebido");
+    console.log("Arquivo Recebido Pelo Servidor");
+    console.log("Realizando Upload na nuvem OneDrive");
 })
 
-app.listen(8080,() => {
-    console.log("Sevidor Rodando!");
+app.listen(3002,() => {
+    console.log("Servidor iniciado na porta 3002: http://192.168.2.134:3002/");
 })
