@@ -28,7 +28,7 @@ app.get("/",(req, res) => {
 })
 
 app.post("/upload",upload.single("file"),(req, res) =>{
-    res.send("Arquivo Recebido");
+    res.render("recebido");
 })
 
 app.listen(8080,() => {
